@@ -1,6 +1,6 @@
 require "active_record"
 require "pry"
-require_relative "model"
+require "table_print"
 
 
 
@@ -9,6 +9,7 @@ ActiveRecord::Base.establish_connection(
 	:host => "localhost",
 	:database => "personal_finance_db"
 	)
+require_relative "model"
 
 def clean_slate
 	ActiveRecord::Base.connection.tables.each do |table|
@@ -16,5 +17,3 @@ def clean_slate
 	end
 end
 
-#CreatePersonalFinance.new
-binding.pry
