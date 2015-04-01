@@ -1,6 +1,6 @@
 require "active_record"
 require "pry"
-#require_relative  #add later
+require_relative "model"
 
 
 
@@ -16,4 +16,5 @@ def clean_slate
 	end
 end
 
+#CreatePersonalFinance.new
 binding.pry
