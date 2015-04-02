@@ -1,6 +1,6 @@
 require "active_record"
-require "pry"
 require "table_print"
+
 
 
 
@@ -9,6 +9,7 @@ ActiveRecord::Base.establish_connection(
 	:host => "localhost",
 	:database => "personal_finance_db"
 	)
+
 require_relative "model"
 
 def clean_slate

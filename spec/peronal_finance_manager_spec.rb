@@ -24,7 +24,7 @@ describe Account do
 		it " has a account number which is integer with 7 digits"
 
 		it "has a starting balance" do
-			expect(preston.starting_balance).to eq(10000.00)
+			expect(preston.balance).to eq(10000.00)
 		end
 
 		it "has many transations"
