@@ -13,18 +13,18 @@
 
 ##Instructions for the application
 1. STARTUP: From the 'lib' directory, type 'ruby moneymatters.rb' 
-	-This will place you within the application
+  * This will place you within the application
 2. ACCOUNT MENU: In the application, you are prompted with two options.
-	-Create a new account
-		-Choose this option if you have not previously added your account
-	-Access previously created account
-		-Choose this option if you already added your account
+  * Create a new account
+    - Choose this option if you have not previously added your account
+  * Access previously created account
+    - Choose this option if you already added your account
 3. MAIN MENU: Both options, once completed, will send you into the main menu
-- MAIN MENU OPTIONS
-	1. List All Transactions
-	2. Add a Transaction
-	3. Edit a Transaction
-	4. Delete a Transaction
-	5. View Transactions by Category
-	6. Exit
-
+  * MAIN MENU OPTIONS
+	- List All Transactions
+	- Add a Transaction
+	- Edit a Transaction
+	- Delete a Transaction
+	- View Transactions by Category
+	- Exit
+## Enjoy the application and please leave feedback in my github issues page. 
