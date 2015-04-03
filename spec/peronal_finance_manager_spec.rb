@@ -33,9 +33,7 @@ describe Account do
 			expect(preston.balance).to eq(10000.00)
 		end
 
-		it "has many transations" do
-			expect(preston.transactions.count).to be < 1	
-		end
+		it "has many transations"
 
 		context "when transations have been added to account"
 
