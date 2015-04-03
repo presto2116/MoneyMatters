@@ -1,8 +1,5 @@
-require "active_record"
-require "table_print"
-
-
-
+require 'active_record'
+require 'pry'
 
 ActiveRecord::Base.establish_connection(
 	:adapter => "postgresql",
@@ -10,12 +7,19 @@ ActiveRecord::Base.establish_connection(
 	:database => "personal_finance_db"
 	)
 
-require_relative "model"
 
 def clean_slate
 	ActiveRecord::Base.connection.tables.each do |table|
 		ActiveRecord::Base.connection.drop_table(table)
 	end
+end
+
+def clear_screen
+	print `clear`
+end
+
+def blank_line
+	puts
 end
 
 class CreatePersonalFinance < ActiveRecord::Migration

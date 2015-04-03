@@ -149,26 +149,6 @@ class Transaction < ActiveRecord::Base
 	#validates :debit, :credit,  #Not sure what to validate?
 end
 
-class CreatePersonalFinance < ActiveRecord::Migration
-	def initialize
-		create_table :accounts do |column|
-			column.string :name
-			column.string :bank
-			column.integer :account_number
-			column.float :balance
-		end
-
-		create_table :transactions do |column|
-			column.belongs_to :account
-			column.float :credit
-			column.float :debit
-			column.string :payee
-			column.string :date
-			column.string :category
-		end
-	end
-end
-
 def main_menu
 	puts `clear`
 	loop do
@@ -207,7 +187,6 @@ def main_menu
 					puts("Hope you enjoyed MoneyMatters")
 					puts("Please come back again soon")
 					exit
-					break
 				else
 					puts("Please enter a correct number")
 			end

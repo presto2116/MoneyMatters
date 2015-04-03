@@ -1,4 +1,7 @@
-require_relative "../lib/controller.rb"
+require 'pry'
+require_relative "../lib/db"
+require_relative "../lib/account"
+require_relative "../lib/transaction"
 
 describe Account do
 	let(:preston) {Account.create(name: "PrestonCheck", bank: "WF", account_number: 6824132, balance: 10000.00)}
@@ -21,13 +24,18 @@ describe Account do
 
 		it "has a unique account number"
 
-		it " has a account number which is integer with 7 digits"
+		it " has a account number which is integer with 7 digits" do
+			expect(preston.account_number.to_s.length).to eq(7)		
+		end
+
 
 		it "has a starting balance" do
 			expect(preston.balance).to eq(10000.00)
 		end
 
-		it "has many transations"
+		it "has many transations" do
+			expect(preston.transactions.count).to be < 1	
+		end
 
 		context "when transations have been added to account"
 
@@ -38,20 +46,28 @@ describe Account do
 end
 
 describe Transaction do
-
+let(:monkey) {Transaction.create(account_id: 1, credit: nil, debit: 42.14, payee: "Amazon", date: "02/18/15", category: "personal care")}
 	it "has one credit or debit (not both)" #will be a tricky test
 
-	it "has a payee"
+	it "has a payee" do
+		expect(monkey.payee).to eq("Amazon")
+	end
+	
+	it "has a date"  do 
+		expect(monkey.date).to eq("02/18/15")
+	end
+		
+	it "has a date in format MM/dd/yy"
 
-	it "has a date"
+	it "has a category" do
+		expect(monkey.category).to eq("personal care")
+	end
 
-	it "has a date in format MM/dd"
+	it "belongs to one Account" do
+		expect(monkey.account_id).to eq(1)
+	end
 
-	it "has a category"
 
-	it "belongs to one Account"
-
-	it ""
 end
 
 
