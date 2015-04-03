@@ -4,15 +4,15 @@
 
 ##Setup Instructions
 1. Enter psql from the command line and create a new data base named 'moneymatters_db'
-	1. type 'psql' in your terminal
-	2. Once in psql, type 'CREATE DATABASE moneymatters_db'
+	1. type `psql` in your terminal
+	2. Once in psql, type `CREATE DATABASE moneymatters_db`
 	3. If successfully created, type '\q' to exit psql
 2. Find the MoneyMatters directory and enter the 'lib' directory
-3. Type 'ruby setup.rb' ***ONLY ONCE***
+3. Type `ruby setup.rb` ***ONLY ONCE***
 4. Now everything is set up to start using the app
 
 ##Instructions for the application
-1. STARTUP: From the 'lib' directory, type 'ruby moneymatters.rb' 
+1. STARTUP: From the 'lib' directory, type `ruby moneymatters.rb` 
   * This will place you within the application
 2. ACCOUNT MENU: In the application, you are prompted with two options.
   * Create a new account
@@ -28,4 +28,4 @@
 	5. View Transactions by Category
 	6. Exit
 
-## Enjoy the application and please leave feedback in my github issues page. 
+### Enjoy the application and please leave feedback in the issues tab 
