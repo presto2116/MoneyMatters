@@ -19,7 +19,7 @@
 	  -> 0.0263s
 ```
 
-- you are ready to start using the app
+ you are ready to start using the app
 
 ##Instructions for the application
 <<<<<<< HEAD
