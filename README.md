@@ -1,3 +1,5 @@
+![alt text](http://www.ci.wilmington.de.us/media/487/large.jpg)
+
 #Welcome to MoneyMatters
 
 ##A personal finance managing application that helps keep track of your finances
