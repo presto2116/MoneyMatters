@@ -9,7 +9,14 @@
 	3. If successfully created, type '\q' to exit psql
 2. Find the MoneyMatters directory and enter the 'lib' directory
 3. Type `ruby setup.rb` ***ONLY ONCE***
-4. Now everything is set up to start using the app
+4. If it prints: 
+```ruby 
+	-- create_table(:accounts)
+	  -> 0.0158s
+	-- create_table(:transactions)
+	  -> 0.0263s
+```
+	you are ready to start using the app
 
 ##Instructions for the application
 1. STARTUP: From the 'lib' directory, type `ruby moneymatters.rb` 
