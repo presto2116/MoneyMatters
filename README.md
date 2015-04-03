@@ -13,12 +13,12 @@
 
 ##Instructions for the application
 1. STARTUP: From the 'lib' directory, type 'ruby moneymatters.rb' 
-	-This will place you within the application
+	*This will place you within the application
 2. ACCOUNT MENU: In the application, you are prompted with two options.
-	-Create a new account
-		-Choose this option if you have not previously added your account
-	-Access previously created account
-		-Choose this option if you already added your account
+	1. Create a new account
+		*Choose this option if you have not previously added your account
+	2. Access previously created account
+		*Choose this option if you already added your account
 3. MAIN MENU: Both options, once completed, will send you into the main menu
 - MAIN MENU OPTIONS
 	1. List All Transactions
