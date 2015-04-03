@@ -9,7 +9,7 @@ class Account < ActiveRecord::Base
 	validates :name, :bank, :account_number, :balance, :presence => true
 	validates :account_number, :numericality => true
 	validates :account_number, :length => {:is => 7}
-	validates :balance, :numericality => true
+	#validates :balance, :numericality => true
 	
 	def self.create_account #create new account, then enter main menu
 		puts("What's the name of the new account?")
@@ -35,7 +35,7 @@ class Account < ActiveRecord::Base
 	end
 
 	def self.access_old_accounts #choose previously created account, then enter main menu
-		tp Account.all
+		tp Account.all.order(:id)
 		blank_line
 		puts("Please enter the ID of the account you want to access?")
 			account_id = gets.chomp.to_i

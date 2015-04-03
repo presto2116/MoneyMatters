@@ -4,7 +4,7 @@ require 'pry'
 ActiveRecord::Base.establish_connection(
 	:adapter => "postgresql",
 	:host => "localhost",
-	:database => "personal_finance_db"
+	:database => "moneymatters_db"
 	)
 
 

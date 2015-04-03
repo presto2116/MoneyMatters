@@ -9,15 +9,15 @@ def main_menu
 	clear_screen
 	loop do
 		Account.list_account
-		puts("======Learn To Save With Us at MoneyMatters=======")
-		puts("-------------------Main Menu----------------------")
-		puts("Enter 1- List all Transactions")
-		puts("Enter 2- Add a Transaction")
-		puts("Enter 3- Edit a Transaction")
-		puts("Enter 4- Delete a Transaction")
-		puts("Enter 5- See a Particular Category of Transactions")
-		puts("Enter 6- Exit")
-		puts("==================================================")
+		puts("======Learn To Save With Us at MoneyMatters=======
+-------------------Main Menu----------------------
+Enter 1- List all Transactions
+Enter 2- Add a Transaction
+Enter 3- Edit a Transaction
+Enter 4- Delete a Transaction
+Enter 5- See a Particular Category of Transactions
+Enter 6- Exit
+==================================================")
 		loop do
 			user_entry = gets.chomp.to_i
 			
