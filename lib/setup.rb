@@ -57,6 +57,8 @@ Transaction.create(account_id: 1, credit: nil, debit: 102.23, payee: "Giant Food
 Transaction.create(account_id: 1, credit: nil, debit: 1893.03, payee: "Apple Computers", date: "03/21/15", category: "personal care")
 Transaction.create(account_id: 1, credit: 1500.00, debit: nil, payee: "NASA", date: "03/31/15", category: "income")
 Transaction.create(account_id: 1, credit: nil, debit: 50.00, payee: "WMATA", date: "04/01/15", category: "transportation")
+Transaction.create(account_id: 1, credit: nil, debit: 11500.00, payee: "General Assembly WDI", date: "03/21/15", category: "debts")
+
 
 
 
