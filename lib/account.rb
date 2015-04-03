@@ -11,7 +11,7 @@ class Account < ActiveRecord::Base
 	validates :account_number, :length => {:is => 7}
 	validates :balance, :numericality => true
 	
-	def self.create_account
+	def self.create_account #create new account, then enter main menu
 		puts("What's the name of the new account?")
 			name = gets.chomp
 		puts("What's the bank's name?")
@@ -26,15 +26,15 @@ class Account < ActiveRecord::Base
 		else
 			create_account.errors.each do |key, val|
 				puts "#{key} #{val}"
-				sleep 1
-				Account.create_account
-			end
+				end
+			sleep 1
+			Account.create_account	
 		end
 		current_account = Account.last
 		@current_account = current_account
 	end
 
-	def self.access_old_accounts
+	def self.access_old_accounts #choose previously created account, then enter main menu
 		tp Account.all
 		blank_line
 		puts("Please enter the ID of the account you want to access?")
@@ -43,45 +43,35 @@ class Account < ActiveRecord::Base
 			@current_account = current_account	
 	end
 
-	def self.list_account
+	def self.list_account # balance prompt above every main menu
 		clear_screen
-		tp @current_account 
+			tp @current_account 
 		blank_line
 	end
 
-	def self.list_transactions
+	def self.list_transactions #list transactions by date
 		clear_screen
-		tp @current_account.transactions.all
+			tp @current_account.transactions.all.order(:date)
 		blank_line
-		puts("Press 'enter' to return to main menu")
+		puts
+		puts("Press 'ENTER' to return to main menu")
 		entry = gets.chomp
-			if entry == "\n"
-				exit 
+			if entry == ""
+				main_menu
 			end  
 	end
 
-	def self.updating_add_balance
-		if Transaction.last.debit == nil
-				update_balance = @current_account.balance + Transaction.last.credit 
-			 	@current_account.update(balance: update_balance)
-			elsif Transaction.last.credit == nil
-				update_balance = @current_account.balance - Transaction.last.debit 
-				@current_account.update(balance: update_balance.round(2))
-			else
-		end
-	end
-
-	def self.add_transaction
+	def self.add_transaction #add new transaction to current account
 		clear_screen
 		puts("What's the amount of this transaction?")
 		print("$") 
 		amount = gets.chomp.to_f.round(2)
 		puts("Was '$#{amount}' a 'credit'(+ $$$) or 'debit'(- $$$)")
-		credit_debit = gets.chomp.downcase
-			if credit_debit == "credit"
+		entry = gets.chomp.downcase
+			if entry == "credit"
 				credit = amount
 				debit = nil
-			elsif credit_debit == "debit"
+			elsif entry == "debit"
 				debit = amount
 				credit = nil
 			else
@@ -110,18 +100,18 @@ class Account < ActiveRecord::Base
 		sleep 1
 	end
 
-	def self.update_edit_credit_balance
-		update_balance = @current_account.balance - @edit_transaction.credit + @correct_info
-		@current_account.update(balance: update_balance.round(2))
+	def self.updating_add_balance #when adding transaction, updates the current account balance
+		if Transaction.last.debit == nil
+				update_balance = @current_account.balance + Transaction.last.credit 
+			 	@current_account.update(balance: update_balance)
+			elsif Transaction.last.credit == nil
+				update_balance = @current_account.balance - Transaction.last.debit 
+				@current_account.update(balance: update_balance.round(2))
+			else
+		end
 	end
 
-	def self.update_edit_debit_balance
-		update_balance = @current_account.balance + @edit_transaction.debit - @correct_info
-		@current_account.update(balance: update_balance.round(2))
-	end
-
-
-	def self.edit_transaction
+	def self.edit_transaction #edits a previous transaction
 			clear_screen
 			tp @current_account.transactions.all
 			puts
@@ -136,7 +126,6 @@ class Account < ActiveRecord::Base
 				field_edit = gets.chomp.downcase
 			puts("Please enter correct information")
 				correct_info = gets.chomp
-				
 			case field_edit
 				when "debit"
 					@correct_info = correct_info.to_f
@@ -161,9 +150,18 @@ class Account < ActiveRecord::Base
 			puts("Transaction has been updated")
 			sleep 1
 	end
-	
 
-	def self.delete_transaction
+	def self.update_edit_credit_balance #when editing the credit amount of a transaction, updates the current account balance
+		update_balance = @current_account.balance - @edit_transaction.credit + @correct_info
+		@current_account.update(balance: update_balance.round(2))
+	end
+
+	def self.update_edit_debit_balance #when editing the debit amount of a transaction, updates the current account balance
+		update_balance = @current_account.balance + @edit_transaction.debit - @correct_info
+		@current_account.update(balance: update_balance.round(2))
+	end
+	
+	def self.delete_transaction #deletes a previous transaction
 		clear_screen
 		tp @current_account.transactions.all
 		puts
@@ -188,7 +186,7 @@ class Account < ActiveRecord::Base
 			end
 	end
 
-def self.update_delete_balance
+def self.update_delete_balance #when deleting a transaction, updates the current account balance
 		if @bye_transaction.debit == nil
 			update_balance = @current_account.balance - @bye_transaction.credit 
 		 	@current_account.update(balance: update_balance.round(2))
@@ -199,7 +197,7 @@ def self.update_delete_balance
 		end
 	end
 
-	def self.category_list
+	def self.category_list #lists transactions by category
 		loop do
 			clear_screen
 			puts("Which category will you like to view?")

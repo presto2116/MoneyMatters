@@ -15,7 +15,7 @@ def main_menu
 		puts("Enter 2- Add a Transaction")
 		puts("Enter 3- Edit a Transaction")
 		puts("Enter 4- Delete a Transaction")
-		puts("Enter 5- See A Perticular Category of Transactions")
+		puts("Enter 5- See a Particular Category of Transactions")
 		puts("Enter 6- Exit")
 		puts("==================================================")
 		loop do
