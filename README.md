@@ -17,7 +17,7 @@
 	  -> 0.0263s
 ```
 
-	- you are ready to start using the app
+- you are ready to start using the app
 
 ##Instructions for the application
 1. STARTUP: From the 'lib' directory, type `ruby moneymatters.rb` 
