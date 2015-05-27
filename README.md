@@ -2,7 +2,7 @@
 
 #Welcome to MoneyMatters
 
-##A personal finance managing application that helps keep track of your finances
+##A personal finance managing application written in ruby that helps keep track of your finances from the command line.
 
 ##Setup Instructions
 1. Enter psql from the command line and create a new data base named 'moneymatters_db'
